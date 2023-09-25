@@ -27,6 +27,11 @@ app.use('/api/auth', require('./routes/auth') );
 
 app.use('/api/events', require('./routes/events') );
 
+// NOS SIRVE PARA IGNORAR LAS OTRAS URLS Y TTRABAJAR SIEMPRE CON LA RAIZ
+app.get('*', (req, res) => {
+    res.sendFile( __dirname + '/public/index.html' );
+})
+
 
 // TODO: CRUD: Eventos
 
